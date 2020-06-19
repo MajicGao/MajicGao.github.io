@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux Tips | MajicGao&#39;s Blog</title>
-  <meta name="keywords" content=" Linux ">
-  <meta name="description" content="Linux Tips | MajicGao&#39;s Blog">
+  <title>软件工程(六)_详细设计_结构化程序 | MajicGao&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="软件工程(六)_详细设计_结构化程序 | MajicGao&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="第九章 面向对象方法学引论 对象模型 对象模型标识静态的、结构化的系统的数据性质，是对模拟客观世界实体的对象以及对象彼此之间的关系的映射，描述系统的静态结构。通常使用UML提供的类图进行对象模型建模 步骤：  确定对象类和关联，对于大型复杂问题可以划分若干主题 确定对象类：采用非正式分析：以需求陈述为依据，将名词作为类和对象的候选者，把形容词作为确定属性的线索，把动词作为服务(操作)的候选者；再在">
 <meta property="og:type" content="article">
@@ -406,36 +406,24 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux Tips" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-软件工程(六)_详细设计_结构化程序" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux Tips</h1>
+        <h1 class="article-title">软件工程(六)_详细设计_结构化程序</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="运维">运维</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a class="color1">Linux</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-06 20:00:20'>2019-04-07 11:45</time>
+        创建时间:<time class="date" title='更新时间: 2020-06-17 10:07:15'>2020-06-19 23:57</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:128</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -465,7 +453,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux-知识"><span class="toc-text">Linux 知识</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#结构化程序"><span class="toc-text">结构化程序</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -481,89 +469,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h4 id="Linux-知识"><a href="#Linux-知识" class="headerlink" title="Linux 知识"></a>Linux 知识</h4><ol>
-<li><p>把用户加入root组</p>
-<ol>
-<li>切换到root用户，运行visudo命令</li>
-<li>在配置文件中找到root ALL=(ALL) ALL，在下面一行添加 xxx ALL=(ALL) ALL 其中xxx是你要加入的用户名称</li>
-<li>保存退出就OK了</li>
-</ol>
-</li>
-<li><p>shadowsocks一键配置包下载与安装</p>
-<pre><code>  git clone -b master https://github.com/flyzy2005/ss-fly</code></pre><pre><code>  ss-fly/ss-fly.sh -i major123 1024</code></pre></li>
-<li><p>shadowsocks一键包的相关操作</p>
-<pre><code>  修改配置文件：vim /etc/shadowsocks.json
-  停止ss服务：ssserver -c /etc/shadowsocks.json -d stop
-  启动ss服务：ssserver -c /etc/shadowsocks.json -d start
-  重启ss服务：ssserver -c /etc/shadowsocks.json -d restart
-  卸载ssr服务:
-  ./shadowsocksR.sh uninstall</code></pre></li>
-<li><p>vim 修改只读文件修改完权限不够</p>
-<pre><code>  :w !sudo tee %</code></pre></li>
-<li><p>一键开启BBR加速</p>
-<pre><code>  ss-fly/ss-fly.sh -bbr</code></pre><p>  判断是否成功：</p>
-<pre><code>  sysctl net.ipv4.tcp_available_congestion_control</code></pre><p>  返回如下则为成功yum</p>
-<pre><code>  net.ipv4.tcp_available_congestion_control = bbr cubic reno</code></pre></li>
-<li><p>Linux 换源  </p>
-<ol>
-<li>Centos 换源  <ol>
-<li>进入yum源配置文件cd /etc/yum.repos.d  </li>
-<li>备份一份当前源，以防出错 mv ./Centos-Base.repo ./Centos-Base-repo.bak  </li>
-<li>下载网易163的源 wget <a href="http://mirrors.163.com/.help/CentOS7-Base-163.repo" target="_blank" rel="noopener">http://mirrors.163.com/.help/CentOS7-Base-163.repo</a>  </li>
-<li>清理一下旧包 yum clean all  </li>
-<li>把下载下来文件 CentOS7-Base-163.repo设置成为默认源 mv CentOS7-Base-163.repo CentOS-Base.repo  </li>
-<li>生成缓存即可用163源了 yum makecache  </li>
-<li>现在我们就可以用163源来安装软件了！ 如下我们安装一个php<br>yum install php  </li>
-<li>查看一下，可以看到已经安装好了：yum list | grep php  </li>
-</ol>
-</li>
-<li>Ubuntu 换源  <ol>
-<li>备份原来的源：sudo cp /etc/apt/sources.list /etc/apt/sources_init.list  </li>
-<li></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>Linux软件卸载<br> rpm -qa | grep nginx  #比如这里就是卸载nginx，先查看是否安装有nginx<br>  yum erase nginx -y     #CentOS用yum来卸载软件  </p>
-</li>
-<li><p>CentOS7 配置中文输入和显示中文<br> 在shell中输入localectl命令，观察显示LANG这个参数是什么<br> 如果不是zh_CN.utf-8就需要配置<br> 使用命令：localectl set-locale LANG=zh_CN.utf8</p>
-</li>
-<li><p>Linux网络配置<br>首先检查当前网络是否配置好，可用：<code>ping 8.8.8.8</code><br>再检查网络设备是否存在：<code>ifconfig</code><br><code>ifconfig devicename ip/24</code>：设定IP<br><code>ifconfig devicename down</code>：关闭<br><code>ifconfig devicename up</code>：打开<br><code>ip addr</code>：检测和设定网络接口<br><code>ip addr show</code>：检测<br><code>ip addr add ip/24 dev devicename</code>：设定IP<br>管理网络配置文件：<br><code>vim /etc/sysconfig/network-scripts/ifcfg-xxx</code></p>
-<pre><code>DEVICE=eth0
-ONBOOT=yes
-IPADDR=172.25.254.100
-NETMASK=255.255.255.0
-BOOTPROTO=none
-NAME=westos</code></pre></li>
-</ol>
-<p>修改完环境变量后可以通过<code>souce</code>命令使之生效</p>
-<ol start="11">
-<li><p>压缩与解压缩<br>解压tar.gz和tar包到当前目录<br>tar -xvf test.tar.gz<br>tar -xvf test.tar<br>解压到指定目录<br>tar -xvf test.tar.gz -C dir<br>tar -xvf test.tar -C dir</p>
-</li>
-<li><p>修改主机名： sudo vim /etc/hostname<br>hosts文件作用：建立域名与IP的映射<br>修改hosts： sudo vim /etc/hosts</p>
-</li>
-</ol>
-<ol start="13">
-<li><p>Linux系统下文件夹及其作用<br>/bin        放置执行文件目录，root和一般用户都可执行的名令<br>/boot        放置开机使用到的文件，包括内核文件和开机菜单以及开机所需要的配置文件<br>/dev        存放任何的设备和接口设备，linux下都是以文件的形式存在于这个目录下，通</p>
-<pre><code>        过访问文件访问这些设备</code></pre><p>/etc        放置系统几乎所有的系统配置文件，包括账号密码文件、各个服务的起始文件等</p>
-<pre><code>        建议不要放置任何可执行文件</code></pre><p>/home        系统默认的用户诸位文件夹，创建一个用户</p>
-<pre><code>        就会在这个目录下创建一个用户家目录</code></pre><p>/lib        放置系统函数库<br>/media        media即是媒体，存放可以删除的设备，包括软盘、光盘、DVD等临时挂放在这里<br>/mnt        挂载额外的设备，早期与/media作用相同<br>/opt         </p>
-</li>
-<li><p>Linux添加环境变量PATH失败</p>
-<ul>
-<li>问题复现： 在当前用户的PATH配置文件<code>.bash_profile</code>对PATH进行修改，并执行<code>source .bash_profile</code>, 但是PATH无法生效</li>
-<li>问题原因： 每个用户都有自己的PATH配置文件,但是整个系统也有一个PATH配置文件，当在用户的配置文件中修改PATH之后，需要分别执行<code>source .bash_profile</code>和<code>source /etc/profile</code>之后PATH才生效</li>
-</ul>
-</li>
-<li><p>Linux命令别名</p>
-<p>别名暂时设置，如：<code>alias g++11=&quot;g++ -std=c++11&quot;</code></p>
-<p>别名永久设置：</p>
-<pre><code class="bash">修改：/root/.bashrc
-添加：alias g++11=&quot;g++ -std=c++11&quot; 这样的命令
-source使配置文件重新生效：$source /etc/profile</code></pre>
-</li>
-</ol>
+        <h3 id="结构化程序"><a href="#结构化程序" class="headerlink" title="结构化程序"></a>结构化程序</h3><p>经典定义：如果程序的代码块仅仅通过顺序、选择和循环这3种基本控制结构进行连接，并且每个代码块只有一个入口和一个出口，则称这个程序是结构化的</p>
+<p>广义的定义：结构程序设计是尽量少用GO TO语句的程序设计方法，最好仅仅在检测出错误时才使用GO TO语句，并且使用的是前向的GO TO语句</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 fgao3500@gmail.com </span>
@@ -573,12 +480,12 @@ source使配置文件重新生效：$source /etc/profile</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Linux Tips</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">文章标题:</span>软件工程(六)_详细设计_结构化程序</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">128</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="MajicGao">MajicGao</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-04-07, 11:45:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-06, 20:00:20</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/04/07/Linux%20Tips/" title="Linux Tips">http://yoursite.com/2019/04/07/Linux%20Tips/</a>
+    <p><span class="copy-title">发布时间:</span>2020-06-19, 23:57:38</p>
+    <p><span class="copy-title">最后更新:</span>2020-06-17, 10:07:15</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/06/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B(%E5%85%AD)_%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1_%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%8B%E5%BA%8F/" title="软件工程(六)_详细设计_结构化程序">http://yoursite.com/2020/06/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B(%E5%85%AD)_%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1_%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%8B%E5%BA%8F/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

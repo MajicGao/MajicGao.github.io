@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux Tips | MajicGao&#39;s Blog</title>
-  <meta name="keywords" content=" Linux ">
-  <meta name="description" content="Linux Tips | MajicGao&#39;s Blog">
+  <title>软件工程(十)_软件测试 | MajicGao&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="软件工程(十)_软件测试 | MajicGao&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="第九章 面向对象方法学引论 对象模型 对象模型标识静态的、结构化的系统的数据性质，是对模拟客观世界实体的对象以及对象彼此之间的关系的映射，描述系统的静态结构。通常使用UML提供的类图进行对象模型建模 步骤：  确定对象类和关联，对于大型复杂问题可以划分若干主题 确定对象类：采用非正式分析：以需求陈述为依据，将名词作为类和对象的候选者，把形容词作为确定属性的线索，把动词作为服务(操作)的候选者；再在">
 <meta property="og:type" content="article">
@@ -406,36 +406,24 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux Tips" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-软件工程(十)_软件测试" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux Tips</h1>
+        <h1 class="article-title">软件工程(十)_软件测试</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="运维">运维</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a class="color1">Linux</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-06 20:00:20'>2019-04-07 11:45</time>
+        创建时间:<time class="date" title='更新时间: 2020-06-19 23:36:19'>2020-06-19 23:57</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:2.8k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -465,7 +453,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux-知识"><span class="toc-text">Linux 知识</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件测试基础"><span class="toc-text">软件测试基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试方法"><span class="toc-text">测试方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试步骤"><span class="toc-text">测试步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单元测试"><span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#集成测试"><span class="toc-text">集成测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#确认测试"><span class="toc-text">确认测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#白盒测试技术"><span class="toc-text">白盒测试技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#黑盒测试技术"><span class="toc-text">黑盒测试技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调试"><span class="toc-text">调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#软件可靠性"><span class="toc-text">软件可靠性</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -481,89 +469,156 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h4 id="Linux-知识"><a href="#Linux-知识" class="headerlink" title="Linux 知识"></a>Linux 知识</h4><ol>
-<li><p>把用户加入root组</p>
+        <h3 id="软件测试基础"><a href="#软件测试基础" class="headerlink" title="软件测试基础"></a>软件测试基础</h3><p>在测试阶段测试人员努力设计出一系列测试案例，目的是”破坏”已建好的系统，竭力证明程序中有错误，不能按照预定要求正常工作</p>
+<p>测试阶段的根本目的是尽可能多地发现并排除软件中潜在的错误，最终把高质量的软件系统交给用户使用</p>
+<p>测试准则：</p>
 <ol>
-<li>切换到root用户，运行visudo命令</li>
-<li>在配置文件中找到root ALL=(ALL) ALL，在下面一行添加 xxx ALL=(ALL) ALL 其中xxx是你要加入的用户名称</li>
-<li>保存退出就OK了</li>
+<li>所有测试都应该能追溯到用户需求</li>
+<li>应该远在测试开始之前就制定出测试计划</li>
+<li>把Pareto原理应用到软件测试中，Pareto原理说明，测试发现的错误中80%很可能是由程序中的20%的模块引起的</li>
+<li>应该从小规模测试开始，再逐步进行大规模测试</li>
+<li>穷举测试是不可能的，测试只能证明程序中存在错误，不能证明程序中没有错误</li>
+<li>为了达到最佳的测试效果，应该有独立的第三方从事测试工作</li>
 </ol>
+<h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><p>黑盒测试：把程序看作一个黑盒子，步烤炉程序的内部结构和处理过程；黑盒测试是在程序接口进行测试，只检测是否符合规格说明书；黑盒测试又称功能测试</p>
+<p>白盒测试：把程序看作装在一个透明的白盒子里，测试程序内部的主要执行通路是否按要求正常工作；白盒测试也称结构测试</p>
+<h4 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h4><ol>
+<li><p>模块测试</p>
+<p>模块测试的目的是保证每个模块作为一个单元能正常工作，模块测试也称单元测试，这个测试往往发现的是编码和详细设计阶段的错误</p>
 </li>
-<li><p>shadowsocks一键配置包下载与安装</p>
-<pre><code>  git clone -b master https://github.com/flyzy2005/ss-fly</code></pre><pre><code>  ss-fly/ss-fly.sh -i major123 1024</code></pre></li>
-<li><p>shadowsocks一键包的相关操作</p>
-<pre><code>  修改配置文件：vim /etc/shadowsocks.json
-  停止ss服务：ssserver -c /etc/shadowsocks.json -d stop
-  启动ss服务：ssserver -c /etc/shadowsocks.json -d start
-  重启ss服务：ssserver -c /etc/shadowsocks.json -d restart
-  卸载ssr服务:
-  ./shadowsocksR.sh uninstall</code></pre></li>
-<li><p>vim 修改只读文件修改完权限不够</p>
-<pre><code>  :w !sudo tee %</code></pre></li>
-<li><p>一键开启BBR加速</p>
-<pre><code>  ss-fly/ss-fly.sh -bbr</code></pre><p>  判断是否成功：</p>
-<pre><code>  sysctl net.ipv4.tcp_available_congestion_control</code></pre><p>  返回如下则为成功yum</p>
-<pre><code>  net.ipv4.tcp_available_congestion_control = bbr cubic reno</code></pre></li>
-<li><p>Linux 换源  </p>
-<ol>
-<li>Centos 换源  <ol>
-<li>进入yum源配置文件cd /etc/yum.repos.d  </li>
-<li>备份一份当前源，以防出错 mv ./Centos-Base.repo ./Centos-Base-repo.bak  </li>
-<li>下载网易163的源 wget <a href="http://mirrors.163.com/.help/CentOS7-Base-163.repo" target="_blank" rel="noopener">http://mirrors.163.com/.help/CentOS7-Base-163.repo</a>  </li>
-<li>清理一下旧包 yum clean all  </li>
-<li>把下载下来文件 CentOS7-Base-163.repo设置成为默认源 mv CentOS7-Base-163.repo CentOS-Base.repo  </li>
-<li>生成缓存即可用163源了 yum makecache  </li>
-<li>现在我们就可以用163源来安装软件了！ 如下我们安装一个php<br>yum install php  </li>
-<li>查看一下，可以看到已经安装好了：yum list | grep php  </li>
-</ol>
+<li><p>子系统测试</p>
+<p>把单元测试通过的模块组装成子系统，检测模块间是否能够正常通信和协调，这个步骤主要是测试模块的接口</p>
 </li>
-<li>Ubuntu 换源  <ol>
-<li>备份原来的源：sudo cp /etc/apt/sources.list /etc/apt/sources_init.list  </li>
-<li></li>
-</ol>
+<li><p>系统测试</p>
+<p>把测试通过的子系统装配成一个完整的系统来测试，确定系统能够实现需求说明书上指定的功能，并且动态特征符合预定要求；子系统测试和系统测试通常都成为集成测试</p>
+</li>
+<li><p>验收测试</p>
+<p>在用户的参与下，测试整个系统，确定系统功能符合用户的需求；验收测试也称确认测试</p>
+</li>
+<li><p>平行运行</p>
+<p>新旧系统平行运行一段时间，防止新系统有未检测到的错误</p>
 </li>
 </ol>
-</li>
-<li><p>Linux软件卸载<br> rpm -qa | grep nginx  #比如这里就是卸载nginx，先查看是否安装有nginx<br>  yum erase nginx -y     #CentOS用yum来卸载软件  </p>
-</li>
-<li><p>CentOS7 配置中文输入和显示中文<br> 在shell中输入localectl命令，观察显示LANG这个参数是什么<br> 如果不是zh_CN.utf-8就需要配置<br> 使用命令：localectl set-locale LANG=zh_CN.utf8</p>
-</li>
-<li><p>Linux网络配置<br>首先检查当前网络是否配置好，可用：<code>ping 8.8.8.8</code><br>再检查网络设备是否存在：<code>ifconfig</code><br><code>ifconfig devicename ip/24</code>：设定IP<br><code>ifconfig devicename down</code>：关闭<br><code>ifconfig devicename up</code>：打开<br><code>ip addr</code>：检测和设定网络接口<br><code>ip addr show</code>：检测<br><code>ip addr add ip/24 dev devicename</code>：设定IP<br>管理网络配置文件：<br><code>vim /etc/sysconfig/network-scripts/ifcfg-xxx</code></p>
-<pre><code>DEVICE=eth0
-ONBOOT=yes
-IPADDR=172.25.254.100
-NETMASK=255.255.255.0
-BOOTPROTO=none
-NAME=westos</code></pre></li>
-</ol>
-<p>修改完环境变量后可以通过<code>souce</code>命令使之生效</p>
-<ol start="11">
-<li><p>压缩与解压缩<br>解压tar.gz和tar包到当前目录<br>tar -xvf test.tar.gz<br>tar -xvf test.tar<br>解压到指定目录<br>tar -xvf test.tar.gz -C dir<br>tar -xvf test.tar -C dir</p>
-</li>
-<li><p>修改主机名： sudo vim /etc/hostname<br>hosts文件作用：建立域名与IP的映射<br>修改hosts： sudo vim /etc/hosts</p>
-</li>
-</ol>
-<ol start="13">
-<li><p>Linux系统下文件夹及其作用<br>/bin        放置执行文件目录，root和一般用户都可执行的名令<br>/boot        放置开机使用到的文件，包括内核文件和开机菜单以及开机所需要的配置文件<br>/dev        存放任何的设备和接口设备，linux下都是以文件的形式存在于这个目录下，通</p>
-<pre><code>        过访问文件访问这些设备</code></pre><p>/etc        放置系统几乎所有的系统配置文件，包括账号密码文件、各个服务的起始文件等</p>
-<pre><code>        建议不要放置任何可执行文件</code></pre><p>/home        系统默认的用户诸位文件夹，创建一个用户</p>
-<pre><code>        就会在这个目录下创建一个用户家目录</code></pre><p>/lib        放置系统函数库<br>/media        media即是媒体，存放可以删除的设备，包括软盘、光盘、DVD等临时挂放在这里<br>/mnt        挂载额外的设备，早期与/media作用相同<br>/opt         </p>
-</li>
-<li><p>Linux添加环境变量PATH失败</p>
+<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><p>测试重点：模块接口、局部数据结构、重要的执行通路、出错处理通路、边界条件</p>
+<p>代码审查：由审查小组(组长、设计者、编写者、测试者)进行代码审查</p>
+<p>用计算机的测试方法发现错误之后，通常需要先改正错误之后才能进行后续的继续测试工作；模块内聚程度高可以简化单元测试过程</p>
+<h4 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h4><p>集成测试的方式有两种：非渐增式测试和渐增式测试</p>
+<p>非渐增式测试：先分别测试每个模块，再将所有模块集成起来再测试整个系统，即一次性集成</p>
+<p>渐增式测试：每测试完一个模块之后就将该模块集成到系统中，并对系统进行测试，逐步集成</p>
+<h4 id="确认测试"><a href="#确认测试" class="headerlink" title="确认测试"></a>确认测试</h4><p>确认测试也称验收测试，验证软件的有效性</p>
+<p>确认测试必须用户积极参与，确认测试通常进行黑盒测试</p>
+<p>确认测试的一个重要内容是复查软件配置，保证软件配置的所有成分都齐全，质量符合要求，文档与程序完全一致具有完成软件维护所必须的细节，并且已经编好目录</p>
+<p>Alpha测试：由用户在开发者的场所进行</p>
+<p>Beta测试：由软件的最终用户在一个或多个客户场所进行，通常开发人员不在测试现场</p>
+<h4 id="白盒测试技术"><a href="#白盒测试技术" class="headerlink" title="白盒测试技术"></a>白盒测试技术</h4><p>设计测试用例(测试数据+预期的输出结果)是测试阶段的关键技术问题</p>
+<p>白盒测试的方法很多，主要介绍<strong>逻辑覆盖</strong>和<strong>控制结构测试</strong></p>
+<p><strong>逻辑覆盖：</strong></p>
 <ul>
-<li>问题复现： 在当前用户的PATH配置文件<code>.bash_profile</code>对PATH进行修改，并执行<code>source .bash_profile</code>, 但是PATH无法生效</li>
-<li>问题原因： 每个用户都有自己的PATH配置文件,但是整个系统也有一个PATH配置文件，当在用户的配置文件中修改PATH之后，需要分别执行<code>source .bash_profile</code>和<code>source /etc/profile</code>之后PATH才生效</li>
-</ul>
+<li><p>语句覆盖</p>
+<p>每条语句都至少执行一遍，语句覆盖是很弱的逻辑覆盖标准</p>
 </li>
-<li><p>Linux命令别名</p>
-<p>别名暂时设置，如：<code>alias g++11=&quot;g++ -std=c++11&quot;</code></p>
-<p>别名永久设置：</p>
-<pre><code class="bash">修改：/root/.bashrc
-添加：alias g++11=&quot;g++ -std=c++11&quot; 这样的命令
-source使配置文件重新生效：$source /etc/profile</code></pre>
+<li><p>判断覆盖</p>
+<p>每条语句都至少执行一遍，并且每个判断的每一种可能都至少执行一次，注重整个判断的真或假；比语句覆盖强，但仍很弱</p>
+</li>
+<li><p>条件覆盖</p>
+<p>语句覆盖基础上，判断表达式中的每一个条件的每种情况都要取一遍，注重每个条件的真或假；条件覆盖不包含于判断覆盖，判断覆盖也不一定包含于条件判断</p>
+</li>
+<li><p>判断/条件覆盖</p>
+<p>判断表达式中的每个条件都取到各种情况的值，每个判断表达式也都取到各种可能结果</p>
+</li>
+<li><p>条件组合覆盖</p>
+<p>要求选取足够多的测试数据，使得每个判断表达式中的判断条件的各种组合都至少出现一次，注重判断式内部的条件的组合，不是全部判断式条件的组合；条件组合覆盖一定满足判断覆盖、条件覆盖和判断/条件覆盖；条件组合覆盖并不是使程序中的每一条途径都执行到</p>
+</li>
+<li><p>点覆盖</p>
+<p>选取足够多的测试数据，使得程序的执行路径至少经过流图的每一结点一次；标准和语句覆盖相同</p>
+</li>
+<li><p>边覆盖</p>
+<p>使得程序执行路径至少经过流图的每个边一次；通常和判断覆盖一致(判断式只有一个判断条件时一致，多个时不一致)</p>
+</li>
+<li><p>路径覆盖</p>
+<p>使得程序的每条可能的执行路径至少执行一次</p>
+</li>
+</ul>
+<p>覆盖标准之间的关系：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E6%B5%8B%E8%AF%95_%E8%A6%86%E7%9B%96%E6%A0%87%E5%87%86%E9%97%B4%E5%85%B3%E7%B3%BB%E5%9B%BE.png" alt=""></p>
+<p><strong>控制结构测试：</strong></p>
+<ul>
+<li><p>基本路径测试</p>
+<p>步骤：</p>
+<ol>
+<li><p>根据程序设计结构画出相应的流图</p>
+</li>
+<li><p>计算流图的环形复杂度</p>
+</li>
+<li><p>确定线性独立路径的基本集合</p>
+<p>独立路径是指至少引入程序的一个新的处理语句集合或是一个新的条件的路径，流图中即是至少有条新边</p>
+</li>
+<li><p>设计强制执行基本集合中每条路径的测试用例，且每个条件在执行的时候都分别取真、假</p>
 </li>
 </ol>
+</li>
+<li><p>条件测试</p>
+</li>
+<li><p>循环测试</p>
+<p>专注于测试循环结构的有效性，循环结构分三种：简单循环、串接循环和嵌套循环</p>
+</li>
+</ul>
+<h4 id="黑盒测试技术"><a href="#黑盒测试技术" class="headerlink" title="黑盒测试技术"></a>黑盒测试技术</h4><p>常见错误：</p>
+<ol>
+<li>功能不正确或遗漏</li>
+<li>界面错误</li>
+<li>数据结构错误或外部数据库访问错误</li>
+<li>性能错误</li>
+<li>初始化或终止错误</li>
+</ol>
+<p>黑盒测试技术很多，主要介绍<strong>等价划分</strong>、<strong>边界值分析</strong>和<strong>错误推断</strong></p>
+<p><strong>等价划分：</strong></p>
+<p>有效等价类：对于程序规格说明合理的有意义的输入数据构成的集合</p>
+<p>无效等价类：与有效等价类定义相反定义</p>
+<p>设计测试用例之前，先根据程序的功能说明，将输入数据划分为有效等价类和无效等价类</p>
+<p>等价类划分的启发式规则：</p>
+<ol>
+<li>规定输入值范围时，划分一个有效等价类(范围内)，两个无效等价类(范围外的两端)</li>
+<li>规定输入数据个数时，划分一个有效等价类(符合个数)，两个无效等价类(多余要求个数和少于要求个数)</li>
+<li>规定输入一组值，且程序对输入值做不同处理时，每个处理允许输入数据是一个有效等价类，任一无效输入值都属于一个无效等价类，即多个有效等价类，一个无效等价类</li>
+<li>规定输入数据不许遵守一定规则时，遵守规则的输入数据是一个有效等价类，和若干无效等价类(从不同违反角度划分)</li>
+<li>规定输入数据为整数时，划分一个无效等价类，和正整数、零、负整数三个有效等价类</li>
+</ol>
+<p>启发式规则很多，主要是凭着感觉走</p>
+<p>每设计一个测试用例都必须包含一个新的等价类，直到所有等价类都覆盖到后，设计的测试用例才算完整</p>
+<p>设计有效测试用例时，使其尽可能多的覆盖尚未覆盖的有效等价类，直到有效等价类覆盖完，一般只用一个测试用例</p>
+<p>设计无效测试用例时，每次只覆盖一个无效等价类，直到无效等价类覆盖完，一般有多少个无效等价类就至少有多少个无效测试用例</p>
+<p><strong>边界值分析：</strong></p>
+<p>定义：</p>
+<p>边界值分析法就是对输入或输出的边界值进行测试的一种黑盒测试方法。通常边界值分析法是作为对等价类划分法的补充，这种情况下，其测试用例来自等价类的边界</p>
+<p>常见的边界值：</p>
+<p>16bit：-32768~32767；</p>
+<p>32bit：-65536~65535;</p>
+<p>数组元素的第一个和最后一个；</p>
+<p>循环的第0次、第1次和倒数第2次、最后一次</p>
+<p><strong>错误推断：</strong></p>
+<p>基本思想：列举出程序中所有可能的错误和容易发生错误的特殊情况，更具它们选择测试用例</p>
+<h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p>调试是在测试结束发现错误之后排除错误的过程</p>
+<p>工作：确定程序中的可以错误的确切性质和位置，对程序(设计、编码)进行修改，排除这个错误</p>
+<p>调试途径：蛮干法、回溯法、原因排除法(对分查找法、归纳法和演绎法)</p>
+<p>调试过程：</p>
+<ol>
+<li>从错误的外部表现形式入手，确定程序中的出错位置</li>
+<li>研究相关程序，找出错误的内在原因</li>
+<li>修改设计和代码，排除这个错误</li>
+<li>重复进行暴露这个错误的原始促使和某些相关测试</li>
+</ol>
+<p>注意事项：</p>
+<ol>
+<li>有头脑去分析思考与错误相关的信息而不是用脚趾头</li>
+<li>调试工具只是工具，可以用但不能依赖</li>
+<li>试探法是下下策</li>
+<li>不要改一个Bug出现两个Bugs</li>
+</ol>
+<h4 id="软件可靠性"><a href="#软件可靠性" class="headerlink" title="软件可靠性"></a>软件可靠性</h4><p>软件可靠性：在给定的时间间隔内，按照规格说明书的规定成功地运行的概率</p>
+<p>软件可使用性：程序在给定的时间点，按照规格说明书的规定，成功运行的概率</p>
+<p>IEEE给出的<strong>错误</strong>的含义：由开发人员造成的软件差错(bug)</p>
+<p>IEEE给出的<strong>故障</strong>的含义：由错误引发的软件的不正确的行为</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 fgao3500@gmail.com </span>
@@ -573,12 +628,12 @@ source使配置文件重新生效：$source /etc/profile</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Linux Tips</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">文章标题:</span>软件工程(十)_软件测试</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.8k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="MajicGao">MajicGao</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-04-07, 11:45:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-06, 20:00:20</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/04/07/Linux%20Tips/" title="Linux Tips">http://yoursite.com/2019/04/07/Linux%20Tips/</a>
+    <p><span class="copy-title">发布时间:</span>2020-06-19, 23:57:38</p>
+    <p><span class="copy-title">最后更新:</span>2020-06-19, 23:36:19</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/06/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B(%E5%8D%81)_%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" title="软件工程(十)_软件测试">http://yoursite.com/2020/06/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B(%E5%8D%81)_%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

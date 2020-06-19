@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Linux Tips | MajicGao&#39;s Blog</title>
-  <meta name="keywords" content=" Linux ">
-  <meta name="description" content="Linux Tips | MajicGao&#39;s Blog">
+  <title>软件工程(总)_传统方法学的图 | MajicGao&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="软件工程(总)_传统方法学的图 | MajicGao&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="第九章 面向对象方法学引论 对象模型 对象模型标识静态的、结构化的系统的数据性质，是对模拟客观世界实体的对象以及对象彼此之间的关系的映射，描述系统的静态结构。通常使用UML提供的类图进行对象模型建模 步骤：  确定对象类和关联，对于大型复杂问题可以划分若干主题 确定对象类：采用非正式分析：以需求陈述为依据，将名词作为类和对象的候选者，把形容词作为确定属性的线索，把动词作为服务(操作)的候选者；再在">
 <meta property="og:type" content="article">
@@ -406,36 +406,24 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux Tips" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-软件工程(总)_传统方法学的图" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux Tips</h1>
+        <h1 class="article-title">软件工程(总)_传统方法学的图</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="运维">运维</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a class="color1">Linux</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-06 20:00:20'>2019-04-07 11:45</time>
+        创建时间:<time class="date" title='更新时间: 2020-06-19 23:38:09'>2020-06-19 23:57</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:1.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -465,7 +453,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux-知识"><span class="toc-text">Linux 知识</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -481,89 +469,193 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h4 id="Linux-知识"><a href="#Linux-知识" class="headerlink" title="Linux 知识"></a>Linux 知识</h4><ol>
-<li><p>把用户加入root组</p>
-<ol>
-<li>切换到root用户，运行visudo命令</li>
-<li>在配置文件中找到root ALL=(ALL) ALL，在下面一行添加 xxx ALL=(ALL) ALL 其中xxx是你要加入的用户名称</li>
-<li>保存退出就OK了</li>
-</ol>
-</li>
-<li><p>shadowsocks一键配置包下载与安装</p>
-<pre><code>  git clone -b master https://github.com/flyzy2005/ss-fly</code></pre><pre><code>  ss-fly/ss-fly.sh -i major123 1024</code></pre></li>
-<li><p>shadowsocks一键包的相关操作</p>
-<pre><code>  修改配置文件：vim /etc/shadowsocks.json
-  停止ss服务：ssserver -c /etc/shadowsocks.json -d stop
-  启动ss服务：ssserver -c /etc/shadowsocks.json -d start
-  重启ss服务：ssserver -c /etc/shadowsocks.json -d restart
-  卸载ssr服务:
-  ./shadowsocksR.sh uninstall</code></pre></li>
-<li><p>vim 修改只读文件修改完权限不够</p>
-<pre><code>  :w !sudo tee %</code></pre></li>
-<li><p>一键开启BBR加速</p>
-<pre><code>  ss-fly/ss-fly.sh -bbr</code></pre><p>  判断是否成功：</p>
-<pre><code>  sysctl net.ipv4.tcp_available_congestion_control</code></pre><p>  返回如下则为成功yum</p>
-<pre><code>  net.ipv4.tcp_available_congestion_control = bbr cubic reno</code></pre></li>
-<li><p>Linux 换源  </p>
-<ol>
-<li>Centos 换源  <ol>
-<li>进入yum源配置文件cd /etc/yum.repos.d  </li>
-<li>备份一份当前源，以防出错 mv ./Centos-Base.repo ./Centos-Base-repo.bak  </li>
-<li>下载网易163的源 wget <a href="http://mirrors.163.com/.help/CentOS7-Base-163.repo" target="_blank" rel="noopener">http://mirrors.163.com/.help/CentOS7-Base-163.repo</a>  </li>
-<li>清理一下旧包 yum clean all  </li>
-<li>把下载下来文件 CentOS7-Base-163.repo设置成为默认源 mv CentOS7-Base-163.repo CentOS-Base.repo  </li>
-<li>生成缓存即可用163源了 yum makecache  </li>
-<li>现在我们就可以用163源来安装软件了！ 如下我们安装一个php<br>yum install php  </li>
-<li>查看一下，可以看到已经安装好了：yum list | grep php  </li>
-</ol>
-</li>
-<li>Ubuntu 换源  <ol>
-<li>备份原来的源：sudo cp /etc/apt/sources.list /etc/apt/sources_init.list  </li>
-<li></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>Linux软件卸载<br> rpm -qa | grep nginx  #比如这里就是卸载nginx，先查看是否安装有nginx<br>  yum erase nginx -y     #CentOS用yum来卸载软件  </p>
-</li>
-<li><p>CentOS7 配置中文输入和显示中文<br> 在shell中输入localectl命令，观察显示LANG这个参数是什么<br> 如果不是zh_CN.utf-8就需要配置<br> 使用命令：localectl set-locale LANG=zh_CN.utf8</p>
-</li>
-<li><p>Linux网络配置<br>首先检查当前网络是否配置好，可用：<code>ping 8.8.8.8</code><br>再检查网络设备是否存在：<code>ifconfig</code><br><code>ifconfig devicename ip/24</code>：设定IP<br><code>ifconfig devicename down</code>：关闭<br><code>ifconfig devicename up</code>：打开<br><code>ip addr</code>：检测和设定网络接口<br><code>ip addr show</code>：检测<br><code>ip addr add ip/24 dev devicename</code>：设定IP<br>管理网络配置文件：<br><code>vim /etc/sysconfig/network-scripts/ifcfg-xxx</code></p>
-<pre><code>DEVICE=eth0
-ONBOOT=yes
-IPADDR=172.25.254.100
-NETMASK=255.255.255.0
-BOOTPROTO=none
-NAME=westos</code></pre></li>
-</ol>
-<p>修改完环境变量后可以通过<code>souce</code>命令使之生效</p>
-<ol start="11">
-<li><p>压缩与解压缩<br>解压tar.gz和tar包到当前目录<br>tar -xvf test.tar.gz<br>tar -xvf test.tar<br>解压到指定目录<br>tar -xvf test.tar.gz -C dir<br>tar -xvf test.tar -C dir</p>
-</li>
-<li><p>修改主机名： sudo vim /etc/hostname<br>hosts文件作用：建立域名与IP的映射<br>修改hosts： sudo vim /etc/hosts</p>
-</li>
-</ol>
-<ol start="13">
-<li><p>Linux系统下文件夹及其作用<br>/bin        放置执行文件目录，root和一般用户都可执行的名令<br>/boot        放置开机使用到的文件，包括内核文件和开机菜单以及开机所需要的配置文件<br>/dev        存放任何的设备和接口设备，linux下都是以文件的形式存在于这个目录下，通</p>
-<pre><code>        过访问文件访问这些设备</code></pre><p>/etc        放置系统几乎所有的系统配置文件，包括账号密码文件、各个服务的起始文件等</p>
-<pre><code>        建议不要放置任何可执行文件</code></pre><p>/home        系统默认的用户诸位文件夹，创建一个用户</p>
-<pre><code>        就会在这个目录下创建一个用户家目录</code></pre><p>/lib        放置系统函数库<br>/media        media即是媒体，存放可以删除的设备，包括软盘、光盘、DVD等临时挂放在这里<br>/mnt        挂载额外的设备，早期与/media作用相同<br>/opt         </p>
-</li>
-<li><p>Linux添加环境变量PATH失败</p>
+        <p>第一章 软件工程学概述</p>
+<p>第二章 可行性分析</p>
 <ul>
-<li>问题复现： 在当前用户的PATH配置文件<code>.bash_profile</code>对PATH进行修改，并执行<code>source .bash_profile</code>, 但是PATH无法生效</li>
-<li>问题原因： 每个用户都有自己的PATH配置文件,但是整个系统也有一个PATH配置文件，当在用户的配置文件中修改PATH之后，需要分别执行<code>source .bash_profile</code>和<code>source /etc/profile</code>之后PATH才生效</li>
-</ul>
+<li><p>系统流程图</p>
+<p>概括地描述物理系统的传统工具，表达数据在系统各部件之间流动情况，而不是对数据加工处理的控制过程，它是物理数据流图而不是程序流程图</p>
+<p>符号：</p>
+<ol>
+<li>基本符号</li>
+</ol>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/系统流程图基本符号.png" style="zoom:67%;" />
+
+<ol start="2">
+<li>系统符号</li>
+</ol>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/系统流程图系统符号.png" style="zoom:67%;" />
+
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt=""></p>
 </li>
-<li><p>Linux命令别名</p>
-<p>别名暂时设置，如：<code>alias g++11=&quot;g++ -std=c++11&quot;</code></p>
-<p>别名永久设置：</p>
-<pre><code class="bash">修改：/root/.bashrc
-添加：alias g++11=&quot;g++ -std=c++11&quot; 这样的命令
-source使配置文件重新生效：$source /etc/profile</code></pre>
+<li><p>数据流图(DFD)</p>
+<p>描绘信息流和数据从输入移动到输出的过程中经受的变换，不涉及物理部件，只描绘数据在软件中的流动和被处理的逻辑过程，数据流图是系统逻辑功能的图形表示</p>
+<p>符号：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/数据流图符号.png" style="zoom:67%;" />
+
+<p>例子：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/数据流图.png" style="zoom:67%;" />
+</li>
+<li><p>数据字典</p>
+<p>一般数据子安包含4类元素：数据流、数据元素、数据存储、数据处理</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8.png" alt=""></p>
+</li>
+</ul>
+<p>第三章 需求分析</p>
+<p>需求分析包括：功能需求、性能需求、可靠性和可用性需求、出错处理需求、接口需求、约束、逆向需求、将来可能提出的要求</p>
+<p>需求分析过程需要建立三种模型：数据模型、功能模型和行为模型</p>
+<p>数据模型中包含三种相互关联的信息：数据对象、数据对象的属性和数据对象彼此之间的关系</p>
+<p>数据对象：可以由一组属性来定义的实体都可以被认为是数据对象</p>
+<p>属性：数据对象的性质，必须把一个或多个属性定义为标识符，寻找数据对象的一个实例时，用标识符属性作为“关键字”</p>
+<p>联系：客观世界中事物之间彼此的联系，包括1：1、1：N、N：M，联系也可能有属性</p>
+<ul>
+<li><p>实体-联系图</p>
+<p>符号：数据对象使用矩形，属性使用圆角矩形，联系使用菱形</p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/ER%E5%9B%BE.png" alt=""></p>
+</li>
+<li><p>状态转换图</p>
+<p>描绘系统的状态及引起系统状态转换的事件，来表示系统的行为</p>
+<p>状态：是任何可以被观察到的系统行为模式，一个状态代表的一种行为模式</p>
+<p>状态主要分为三种状态：初态、终态和中间状态，在一张状态图中只能有一个初态，而可以有多个终态，状态图既可以表示系统循环运行过程，也可以表示系统单程生命周期</p>
+<p>事件：引起系统做动作或(和)转换状态的控制信息</p>
+<p>符号：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/状态图符号.png" style="zoom:67%;" />
+
+<p>例子：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/状态图.png" style="zoom:50%;" />
+</li>
+<li><p>层次方框图</p>
+<p>层次方框图用树形结构的一系列多层次的矩形框描绘数据的层次结构</p>
+<p>例子：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/层次方框图.png" style="zoom: 67%;" />
+</li>
+<li><p>Warnier 图</p>
+<p>同层次方框图，也是用树形结构描绘信息的逻辑组织，可以反映信息的重复和约束条件</p>
+<p>例子：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/Warnier 图.png" style="zoom:67%;" />
+</li>
+<li><p>IPO 图</p>
+<p>IPO 图是输入、处理、输出图的简称，方便地描绘输入数据、对数据的处理和输出数据之间的关系</p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/IPO%E8%A1%A8.png" alt=""></p>
+</li>
+</ul>
+<p>第五章 总体设计</p>
+<ul>
+<li><p>层次图(H图)和HIPO 图</p>
+<p>层次图：用来描绘软件的层次结构，层次图中的矩形框代表一个模块，方块间的连线代表调用关系，而不是像层次方框图那样代表组成关系</p>
+<p>HPIO 图：层次图加输入/处理/输出图 的缩写，和H图中每个方框对应的都有一个IPO图来描述方框代表的模块的处理过程，IPO图应表明HIPO图中的编号</p>
+<p>HIPO 图 例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/HIPO%E5%9B%BE.png" alt=""></p>
+</li>
+<li><p>结构图</p>
+<p>描绘软件结构的图形化工具，图中一个<strong>方框</strong>代表一个<strong>模块</strong>，框内注明模块的名字或主要功能，方框间的<strong>箭头</strong>代表模块间的<strong>调用关系</strong>，一般都是上方的方框代表的模块调用下方的方框代表的模块，并用<strong>带注释的箭头</strong>代表模块间调用时的来回传递的<strong>信息</strong></p>
+<p>结构图可以由面向数据流的分析得到</p>
+<p>符号：</p>
+<img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/软件工程/结构图符号.png" style="zoom:80%;" />
+
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt=""></p>
+</li>
+</ul>
+<p>第六章 详细设计</p>
+<p>面向数据流的设计方法</p>
+<ul>
+<li><p>程序流程图</p>
+<p>描绘程序处理过程，程序流程图正逐渐被更少的人使用</p>
+<p>主要缺点：</p>
+<ol>
+<li>不是逐步求精的好工具，过早诱使程序员考虑程序的控制，而不去考虑全局结构</li>
+<li>用箭头表示控制流，程序员可能不受约束，随意转移控制</li>
+<li>不易表示数据结构</li>
+</ol>
+<p>基本符号：</p>
+<ol>
+<li>选择(分支)：菱形</li>
+<li>多分支：菱形加分支</li>
+<li>开始或停止：圆角矩形</li>
+<li>处理：矩形</li>
+<li>输入输出：平行四边形</li>
+<li>控制流：带线箭头</li>
+</ol>
+</li>
+<li><p>盒图(N-S 图)</p>
+<p>特点：</p>
+<ol>
+<li><p>功能域(即一个特定控制结构的作用域)明确</p>
+</li>
+<li><p>不可能任意转移控制</p>
+</li>
+<li><p>容易确定局部和全程数据的作用域</p>
+</li>
+<li><p>容易表现出嵌套关系和层次关系</p>
+</li>
+<li><p>可以使程序员养成结构化的思考方式</p>
 </li>
 </ol>
+<p>基本符号：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E7%9B%92%E5%9B%BE%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png" alt=""></p>
+</li>
+<li><p>PAD 图</p>
+<p>使用二维树形结构的图来表示程序的控制流</p>
+<p>优点：</p>
+<ol>
+<li>根据PAD 图设计出来的程序必定是结构化程序</li>
+<li>描绘的程序结构十分清晰，PAD 图中竖线的总条数表示程序的层次数</li>
+<li>PAD表现的程序逻辑，易读、易懂、易记，自上而下，从左往右执行</li>
+<li>容易将PAD 图转化为高级语言源程序</li>
+<li>可以描绘数据结构</li>
+<li>支持自顶向下、精益求精方法的使用</li>
+</ol>
+<p>基本符号：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/PAD%E5%9B%BE%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png" alt=""></p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/PAD%E5%9B%BE.png" alt=""></p>
+</li>
+<li><p>判定表</p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E5%88%A4%E5%AE%9A%E8%A1%A8.png" alt=""></p>
+</li>
+<li><p>判定树</p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E5%88%A4%E5%AE%9A%E6%A0%91.png" alt=""></p>
+</li>
+<li><p>过程设计语言（PDL）也称伪代码</p>
+</li>
+</ul>
+<p>面向数据结构的设计方法</p>
+<p>​    最终目标：得出对程序处理过程的描述，很适合用在详细设计阶段，在完成结构设计之后，用面向数据结构的方法进行每个模块的处理过程的设计</p>
+<ul>
+<li><p>Jackson 图</p>
+<p>数据结构繁多，单但内部逻辑关系却只有顺序、选择和重复3类，Jackson图实质上是对层次方框图的精化，但方框代表几个语句，连线代表组成关系，即一个方框中的操作仅仅由它下层的那些操作组成</p>
+<p>基本符号：</p>
+<ul>
+<li><p>顺序结构：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/Jackson%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84%E7%AC%A6%E5%8F%B7.png" alt=""></p>
+</li>
+<li><p>选择结构：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/Jackson%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84%E7%AC%A6%E5%8F%B7.png" alt=""></p>
+</li>
+<li><p>重复结构：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/Jackson%E9%87%8D%E5%A4%8D%E7%BB%93%E6%9E%84%E7%AC%A6%E5%8F%B7.png" alt=""></p>
+</li>
+</ul>
+<p>改进后的符号：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E6%94%B9%E8%BF%9B%E7%9A%84Jackson%E7%AC%A6%E5%8F%B7.png" alt=""></p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/Jackson%E5%9B%BE.png" alt=""></p>
+</li>
+</ul>
+<p>程序复杂程度的定量度量</p>
+<ul>
+<li><p>流图</p>
+<p>流图也称为程序图，仅仅描述程序的控制流程，完全不表现对数据的具体操作以及分支或循环的具体条件</p>
+<p>符号：一个圆代表零条或多条语句，称作结点；箭头代表控制流，称作边；流图中边必须终止于一个结点（即是这个结点不代表任何语句）；结点和边围成的面称作区域，算区域数时要包含图外部未被围起来的哪个区域(有点像离散里的面)</p>
+<p>例子：</p>
+<p><img src="https://raw.githubusercontent.com/MajicGao/BlogImg/master/blog-imgs/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E6%B5%81%E5%9B%BE.png" alt=""></p>
+</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 fgao3500@gmail.com </span>
@@ -573,12 +665,12 @@ source使配置文件重新生效：$source /etc/profile</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Linux Tips</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
+    <p><span class="copy-title">文章标题:</span>软件工程(总)_传统方法学的图</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.7k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="MajicGao">MajicGao</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-04-07, 11:45:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-06, 20:00:20</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/04/07/Linux%20Tips/" title="Linux Tips">http://yoursite.com/2019/04/07/Linux%20Tips/</a>
+    <p><span class="copy-title">发布时间:</span>2020-06-19, 23:57:38</p>
+    <p><span class="copy-title">最后更新:</span>2020-06-19, 23:38:09</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/06/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B(%E6%80%BB)_%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%AD%A6%E7%9A%84%E5%9B%BE/" title="软件工程(总)_传统方法学的图">http://yoursite.com/2020/06/19/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B(%E6%80%BB)_%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%AD%A6%E7%9A%84%E5%9B%BE/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
